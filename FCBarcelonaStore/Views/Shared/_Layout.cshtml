@@ -14,6 +14,7 @@
                 <ul class="nav navbar-nav">
                 <li><a asp-controller="Home" asp-action="Index" class="navbar-brand">FC Barcelona Store</a></li>
                 <li><a asp-controller="Feedback" asp-action="Index" class="navbar-brand">Feedback</a></li>
+                <partial name="_LoginPartial" />
                 </ul>
             </div>
         </div>
@@ -23,5 +24,6 @@
             @RenderBody()
         </div>
     </div>
+    @RenderSection("Scripts", required:false)
 </body>
 </html>
