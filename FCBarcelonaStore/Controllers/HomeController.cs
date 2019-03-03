@@ -12,7 +12,7 @@ namespace FCBarcelonaStore.Controllers
     {
         private readonly IItemRepository _itemRepository;
 
-        public HomeController(IItemRepository itemRepository) 
+        public HomeController(IItemRepository itemRepository)
         {
             _itemRepository = itemRepository;
         }
@@ -26,6 +26,15 @@ namespace FCBarcelonaStore.Controllers
             };
 
             return View(homeViewModel);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var item = _itemRepository.GetItem(id);
+            if (item == null)
+                return NotFound();
+
+            return View(item);
         }
     }
 }
