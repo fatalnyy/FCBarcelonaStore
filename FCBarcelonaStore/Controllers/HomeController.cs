@@ -19,8 +19,6 @@ namespace FCBarcelonaStore.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Title = "FC Barcelona Store";
-
             var homeViewModel = new HomeViewModel()
             {
                 Title = "Welcome to FC Barcelona Store",
