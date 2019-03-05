@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace FCBarcelonaStore.Models
         }
         public IEnumerable<Item> GetAllItems()
         {
-            return _appDbContext.Items;
+            return _appDbContext.Items.Include(c => c.Category);
         }
 
         public Item GetItem(int itemId)

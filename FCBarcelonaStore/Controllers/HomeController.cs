@@ -24,43 +24,10 @@ namespace FCBarcelonaStore.Controllers
             var homeViewModel = new HomeViewModel()
             {
                 Title = "Welcome to FC Barcelona Store",
-                Items = _itemRepository.GetAllItems().OrderBy(p => p.Id).ToList()
+                Items = _itemRepository.GetAllItems().OrderByDescending(p => p.Discount).ToList()
             };
 
             return View(homeViewModel);
-        }
-
-        public IActionResult List(string category)
-        {
-            IEnumerable<Item> items;
-            string currentCategory = string.Empty;
-
-            if (string.IsNullOrEmpty(category))
-            {
-                items = _itemRepository.GetAllItems().OrderBy(i => i.Id);
-                currentCategory = "Equipment";
-            }
-            else
-            {
-                items = _itemRepository.GetAllItems().Where(i => i.Category.CategoryName == category)
-                    .OrderBy(i => i.Id);
-                currentCategory = _categoryRepository.Categories.FirstOrDefault(c => c.CategoryName == category).CategoryName;
-            }
-
-            return View(new ItemsListViewModel
-            {
-                Items = items,
-                CurrentCategory = currentCategory
-            });
-        }
-
-        public IActionResult Details(int id)
-        {
-            var item = _itemRepository.GetItem(id);
-            if (item == null)
-                return NotFound();
-
-            return View(item);
         }
     }
 }

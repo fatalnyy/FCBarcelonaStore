@@ -42,7 +42,7 @@ namespace FCBarcelonaStore.Controllers
             if (selectedItem != null)
                 _shoppingCart.AddToCart(selectedItem, 1);
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

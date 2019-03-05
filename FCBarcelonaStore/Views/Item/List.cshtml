@@ -1,9 +1,7 @@
-﻿@model HomeViewModel
+﻿@model ItemsListViewModel
 
-<h2>@Model.Title</h2>
-
+@ViewBag.CurrentCategory
 @foreach (var item in Model.Items)
 {
     <partial name="ItemsOverview" model="item" />
 }
-

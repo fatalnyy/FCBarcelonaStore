@@ -47,6 +47,11 @@ namespace FCBarcelonaStore
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: "categoryfilter",
+                    template: "Item/{action}/{category?}",
+                    defaults: new { Controller = "Item", action = "List" });
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });

@@ -9,6 +9,6 @@ namespace FCBarcelonaStore.Models
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public IEnumerable<Item> Items { get; set; }
+        public List<Item> Items { get; set; }
     }
 }
