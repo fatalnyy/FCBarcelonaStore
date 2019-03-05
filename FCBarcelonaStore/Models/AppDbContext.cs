@@ -18,5 +18,7 @@ namespace FCBarcelonaStore.Models
 
         public DbSet<Item> Items { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

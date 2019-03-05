@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20190303185244_IdentityAdded.cs" />
+    <Compile Remove="Migrations\20190303185244_IdentityAdded.Designer.cs" />
+    <Compile Remove="Migrations\20190304162028_AddShoppingCartItem.cs" />
+    <Compile Remove="Migrations\20190304162028_AddShoppingCartItem.Designer.cs" />
+    <Compile Remove="Migrations\20190304163918_AddShoppingCartItem.cs" />
+    <Compile Remove="Migrations\20190304163918_AddShoppingCartItem.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />

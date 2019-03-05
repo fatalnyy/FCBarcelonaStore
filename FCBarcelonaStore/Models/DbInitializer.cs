@@ -9,6 +9,10 @@ namespace FCBarcelonaStore.Models
     {
         public static void Seed(AppDbContext context)
         {
+            if(!context.Categories.Any())
+            {
+                context.Categories.AddRange(Categories.Select(c => c.Value));
+            }
             if(!context.Items.Any())
             {
                 context.AddRange
@@ -26,8 +30,32 @@ namespace FCBarcelonaStore.Models
                 new TShirt { Name = "FC Barcelona 20th Anniversary", ShortDescription = "Momen's Football Shirt", LongDescription = "The 2018/19 FC Barcelona Stadium Home Women's Football Shirt is made from breathable, sweat-wicking fabric to help keep you cool, dry and comfortable on and off the pitch.", Price = 39.99M, Gender = 'F', Size = "XL", Discount = false, ImageUrl = "~/images/items/tshirt5.png", ImageThumbnailUrl = "~/images/items/tshirt5T.jpg" },
                 new TShirt { Name = "2018/19 FC Barcelona Stadium Third", ShortDescription = "Men's Football Shirt", LongDescription = "The 2018/19 FC Barcelona Stadium Home Men's Football Shirt is made from breathable, sweat-wicking fabric to help keep you cool, dry and comfortable on and off the pitch.", Price = 49.99M, Gender = 'M', Size = "XL", Discount = false, ImageUrl = "~/images/items/tshirt6.png", ImageThumbnailUrl = "~/images/items/tshirt6T.jpg" }
                );
+            }
 
-                context.SaveChanges();
+            context.SaveChanges();
+        }
+
+        private static Dictionary<string, Category> categories;
+        public static Dictionary<string, Category> Categories
+        {
+            get
+            {
+                if(categories == null)
+                {
+                    var genresList = new Category[]
+                    {
+                        new Category {CategoryName = "TShirts"},
+                        new Category {CategoryName = "Shorts"},
+                        new Category {CategoryName = "Equipment"},
+                    };
+
+                    categories = new Dictionary<string, Category>();
+
+                    foreach (Category genre in genresList)
+                        categories.Add(genre.CategoryName, genre);
+                }
+
+                return categories;
             }
         }
     }
