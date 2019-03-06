@@ -27,6 +27,7 @@ namespace FCBarcelonaStore
             services.AddTransient<IItemRepository, ItemRepository>();
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
 
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
