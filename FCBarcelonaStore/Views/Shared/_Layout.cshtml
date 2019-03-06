@@ -15,9 +15,9 @@
                     <li><a asp-controller="Home" asp-action="Index" class="navbar-brand">FC Barcelona Store</a></li>
                     <li>@await Component.InvokeAsync("CategoryMenu")</li>
                     <li><a asp-controller="Feedback" asp-action="Index">Feedback</a></li>
-                    <li><partial name="_LoginPartial" /></li>
                     <li>@await Component.InvokeAsync("ShoppingCartSummary")</li>
                 </ul>
+                <partial name="_LoginPartial" />
             </div>
         </div>
     </nav>
